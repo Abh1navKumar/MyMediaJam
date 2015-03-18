@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+    <definition name="Layout" path="/Layout.jsp">
+        <put name="MainBody" value="/Welcome.jsp" />
+    </definition>
+     <definition name="Search" extends="Layout">
+        <put name="MainBody"   value="/index.jsp" />
+    </definition>
+    <definition name="Crawll" extends="Layout">
+        <put name="MainBody"   value="/Dir.jsp" />
+    </definition>
+    <definition name="Login" extends="Layout">
+        <put name="MainBody"   value="/Welcome.jsp" />
+    </definition>
+    <definition name="Result" extends="Layout">
+        <put name="MainBody"   value="/Result.jsp" />
+    </definition>
+    <definition name="RegisterSuccess" extends="Layout">
+        <put name="MainBody"   value="/RegisterSuccess.jsp" />
+    </definition>
+    <definition name="Register" extends="Layout">
+        <put name="MainBody"   value="/Register.jsp" />
+    </definition>
+    <definition name="Fail" extends="Layout">
+        <put name="MainBody"  value="/fail.jsp" />
+    </definition>
+    <definition name="Tutorial" extends="Layout">
+        <put name="MainBody"  value="/Tutorial.jsp" />
+    </definition>
+    <definition name="Developers" extends="Layout">
+        <put name="MainBody"  value="/Developers.jsp" />
+    </definition>
+    <definition name="Terms" extends="Layout">
+        <put name="MainBody"  value="/Terms.jsp" />
+    </definition>
+    <definition name="Setting" extends="Layout">
+        <put name="MainBody"  value="/Setting.jsp" />
+    </definition>
+    <definition name="ForgetPass" extends="Layout">
+        <put name="MainBody"  value="/ForgetPass.jsp" />
+    </definition>
+    <definition name="ChangePass" extends="Layout">
+        <put name="MainBody"  value="/ChangePass.jsp" />
+    </definition>
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>

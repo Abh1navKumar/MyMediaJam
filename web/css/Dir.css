@@ -1,0 +1,73 @@
+/* 
+    Document   : Dir
+    Created on : 1 Nov, 2014, 1:45:15 PM
+    Author     : Cj
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+#header{
+  background-color: #CCCCCC;
+  border-bottom: solid 1px black;
+}
+#path{
+  position:relative;
+  font-size: 8pt;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 2px;
+}
+#list{
+  font-size: 10pt;
+  font-family: Arial;
+  overflow:auto;
+}
+#parent_mus{
+    position:relative;
+}
+
+#ch_mus{
+    position:absolute;
+    top:0;
+    left:0;
+}
+#parent_mov{
+    position:relative;
+}
+
+#ch_mov{
+    position:absolute;
+    top:0;
+    left:0;
+}
+#parent_img{
+    position:relative;
+}
+
+#ch_img{
+    position:absolute;
+    top:0;
+    left:0;
+}
+.folders{
+  padding: 1px;
+  border-top: solid 1px white;
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  border-bottom: solid 1px black;
+  cursor: hand;
+  pointer: hand;
+  background-color: white;
+}
+.folderButton{
+  padding: 0px;
+  border-style: outset;
+  border-width: 2px;
+  cursor: hand;
+  pointer: hand;
+  background-color: #CCCCCC;
+}
+

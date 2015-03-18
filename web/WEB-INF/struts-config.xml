@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="ChangePassBean" type="Beans.ChangePassBean"/>
+        <form-bean name="ForgetPassBean" type="Beans.ForgetPassBean"/>
+        <form-bean name="RegisterBean" type="Beans.RegisterBean"/>
+        <form-bean name="LoginBean" type="Beans.LoginBean"/>
+        <form-bean name="DirBean" type="Beans.DirBean"/>
+        <form-bean name="QueryBean" type="Beans.QueryBean"/>
+        
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.crawl"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Register1"  forward="Register"/>
+        <action path="/developers"  forward="Developers"/>
+        <action path="/terms"  forward="Terms"/>
+        <action path="/direc"  forward="Crawll"/>
+        <action path="/setng"  forward="Setting"/>
+        <action path="/Login2"  forward="Login"/>
+        <action path="/home"  forward="Search"/>
+        <action path="/go"  forward="Layout"/>
+        <action path="/tut"  forward="Tutorial"/>
+        <action path="/changepass"  forward="ChangePass"/>
+        <action input="/index.jsp" name="QueryBean" path="/search" scope="session" type="Actions.QueryAction">
+            <forward name="success" path="Result"/>
+            <forward name="fail" path="Fail"/>
+            <forward name="logout"  path="Login"/>
+        </action>
+        
+        <action input="/Dir.jsp" name="DirBean" path="/dir" scope="session" type="Actions.DirAction">
+            <forward name="success" path="Search"/>
+            <forward name="logout"  path="Login"/>
+        </action>
+        
+        <action input="/Welcome.jsp" name="LoginBean" path="/login" scope="session" type="Actions.LoginAction">
+            <forward name="search" path="Search"/>
+            <forward name="crwll" path="Tutorial"/>
+            <forward name="fail"  path="Login"/>
+            <forward name="forget"  path="ForgetPass"/>
+        </action>
+        <action input="/Register.jsp" name="RegisterBean" path="/register" scope="session" type="Actions.RegisterAction">
+            <forward name="success"  path="RegisterSuccess"/>
+            <forward name="fail"  path="Login"/>
+        </action>
+        <action path="/logout" type="Actions.LogoutAction">
+            <forward name="success"  path="Login"/>
+        </action>
+        <action path="/home" type="Actions.HomeAction">
+            <forward name="loginpage"  path="Login"/>
+            <forward name="homepage"  path="Search"/>
+        </action>
+        <action path="/tutorial1" type="Actions.TutorialAction">
+            <forward name="search"  path="Search"/>
+            <forward name="crwll"  path="Crawll"/>
+            <forward name="fail"  path="Login"/>
+        </action>
+        <action input="/ForgetPass.jsp" name="ForgetPassBean" path="/forget" scope="session" type="Actions.ForgetAction">
+            <forward name="success"  path="Login"/>
+            <forward name="fail"  path="Login"/>
+        </action>
+        <action input="/ChangePass.jsp" name="ChangePassBean" path="/changePasS" scope="session" type="Actions.ChangePassAction">
+            <forward name="success"  path="Search"/>
+            <forward name="fail"  path="ChangePass"/>
+        </action>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
